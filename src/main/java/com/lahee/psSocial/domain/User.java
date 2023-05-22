@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.LastModifiedBy;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
 
@@ -15,16 +17,19 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@SQLDelete(sql = "UPDATE user SET deleteAt = CURRENT_TIMESTAMP WHERE member_id = ?")
+@Where(clause = "deleteAt IS NULL")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 
-    @CreatedBy
+    @CreationTimestamp
     private LocalDateTime createdAt;
-    @LastModifiedBy
+    @UpdateTimestamp
     private LocalDateTime lastModifiedAt;
+    private LocalDateTime deleteAt;
     @Column(unique = true)
     private String email;
     private String password;
