@@ -1,4 +1,4 @@
-package com.lahee.psSocial;
+package com.lahee.psSocial.book;
 
 import java.sql.*;
 import java.util.Map;
@@ -39,8 +39,8 @@ public class ConnectChecker {
 
         System.out.println("dbPassword = " + dbPassword);
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://"+dbHost+"/likelion",
-                dbUser,dbPassword);
+        Connection con = DriverManager.getConnection("jdbc:mysql://" + dbHost + "/likelion",
+                dbUser, dbPassword);
         return con;
     }
 
