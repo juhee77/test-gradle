@@ -1,7 +1,7 @@
 package com.lahee.psSocial.service;
 
-import com.lahee.psSocial.domain.Role;
 import com.lahee.psSocial.domain.User;
+import com.lahee.psSocial.domain.Role;
 import com.lahee.psSocial.domain.dto.user.UserRequestDto;
 import com.lahee.psSocial.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
