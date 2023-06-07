@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each</title>
+</head>
+<body>
+<h1>Item List</h1>
+<div>
+    <p>여기에 List의 각 데이터가 담긴다</p>
+</div>
+<div>
+    <p th:each="item : ${listOfStrings}">Item : [[${item}]] 아이템 입니다. </p>
+</div>
+
+</body>
+</html>

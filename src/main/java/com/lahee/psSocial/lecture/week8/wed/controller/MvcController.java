@@ -44,4 +44,16 @@ public class MvcController {
         model.addAttribute("isLoggedIn", flag);
         return "/week8/wed/if-unless";
     }
+
+
+    @RequestMapping("/each")
+    public String iterm(Model model) {
+        List<String> listOfStrings = new ArrayList<>();
+        listOfStrings.add("lulu");
+        listOfStrings.add("lala");
+        listOfStrings.add("haha");
+
+        model.addAttribute("listOfStrings", listOfStrings);
+        return "/week8/wed/each";
+    }
 }
