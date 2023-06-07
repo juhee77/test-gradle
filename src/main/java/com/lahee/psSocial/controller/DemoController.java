@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class DemoController {
-    @ResponseBody
-    @GetMapping("/")
-    public String getNHome() {
-        return "Here is home";
-    }
+//    @ResponseBody
+//    @GetMapping("/")
+//    public String getNHome() {
+//        return "Here is home";
+//    }
 
     @GetMapping("/home")
     public String home() {
