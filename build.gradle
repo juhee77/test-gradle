@@ -1,7 +1,7 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.0.6'
-	id 'io.spring.dependency-management' version '1.1.0'
+    id 'java'
+    id 'org.springframework.boot' version '3.0.6'
+    id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'com.lahee'
@@ -9,31 +9,35 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.springframework.boot:spring-boot-starter-web:3.0.4'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.0.4'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //dev tools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	//lomobk
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+    //lomobk
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
-	//sql
-	runtimeOnly 'com.mysql:mysql-connector-j'
+    //sql
+    runtimeOnly 'com.mysql:mysql-connector-j'
 
-	//thyme leaf
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    //thyme leaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
-	//mockito
-	testImplementation 'org.mockito:mockito-core'
+    //mockito
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // Bootstrap
+    implementation 'org.webjars:bootstrap:5.3.0'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>lotto</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h3>Lotto</h3>
+    <div class="row">
+        <div class="col">
+                <span th:each="num : ${lotto}">
+                    <span class="mr-1" th:text="${num}"></span>
+                    <span th:if="${num != lotto[5]}">-</span>
+                </span>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <a href="/week8/wed/hits" class="btn btn-secondary mr-2">↩️뒤로가기</a>
+            <a href="/week8/wed/lotto" class="btn btn-primary">🔄다시하기</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
