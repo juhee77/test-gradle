@@ -1,4 +1,4 @@
-package com.lahee.psSocial.lecture.week8.day3;
+package com.lahee.psSocial.lecture.week8.wed;
 
 public class JavaGit {
     public static void main(String[] args) {
