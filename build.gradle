@@ -28,6 +28,9 @@ dependencies {
 	//thyme leaf
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
+	//mockito
+	testImplementation 'org.mockito:mockito-core'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
