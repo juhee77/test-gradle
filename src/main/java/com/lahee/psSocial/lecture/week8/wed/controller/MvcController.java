@@ -46,7 +46,7 @@ public class MvcController {
     }
 
 
-    @RequestMapping("/each")
+    @RequestMapping("/each-string")
     public String iterm(Model model) {
         List<String> listOfStrings = new ArrayList<>();
         listOfStrings.add("lulu");
@@ -55,5 +55,23 @@ public class MvcController {
 
         model.addAttribute("listOfStrings", listOfStrings);
         return "/week8/wed/each";
+    }
+    @RequestMapping("/each-student")
+    public String itermStudent(Model model) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("test1", "test1@email.com"));
+        students.add(new Student("test2", "test2@email.com"));
+        students.add(new Student("test3", "test3@email.com"));
+
+        model.addAttribute("students", students);
+        return "/week8/wed/students";
+    }
+
+    @RequestMapping("/each-student-empty")
+    public String itermStudentEmpty(Model model) {
+        List<Student> students = new ArrayList<>();
+
+        model.addAttribute("students", students);
+        return "/week8/wed/students";
     }
 }
