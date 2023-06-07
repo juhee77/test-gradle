@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>lotto</title>
+</head>
+<body>
+<div th:if="${lottoHistory.isEmpty()}">
+    <p>아직 기록이 없습니다</p>
+</div>
+<div th:unless="${lottoHistory.isEmpty()}">
+    <div th:each="lotto : ${lottoHistory}">
+        <span th:each="num : ${lotto}">
+            <span th:text="${num}"></span>
+            <span th:if="${num != lotto[5]}">-</span>
+        </span>
+        <br>
+    </div>
+</div>
+
+
+
+<div><a href="/week8/wed/hits">↩️돌아가기</a></div>
+
+</body>
+</html>
