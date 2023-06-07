@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>lotto</title>
 </head>
 <body>
-<div th:if="${lottoHistory.isEmpty()}">
-    <p>아직 기록이 없습니다</p>
-</div>
-<div th:unless="${lottoHistory.isEmpty()}">
-    <div th:each="lotto : ${lottoHistory}">
-        <span th:each="num : ${lotto}">
-            <span th:text="${num}"></span>
-            <span th:if="${num != lotto[5]}">-</span>
-        </span>
-        <br>
+<div class="container mt-5">
+    <h3>Lotto History</h3>
+    <div th:if="${lottoHistory.isEmpty()}">
+        <p>아직 기록이 없습니다</p>
+    </div>
+    <div th:unless="${lottoHistory.isEmpty()}">
+        <div th:each="lotto : ${lottoHistory}">
+            <div class="mb-3">
+                <span th:each="num : ${lotto}" class="lotto-number">
+                    <span th:text="${num}"></span>
+                    <span th:if="${num != lotto[5]}">-</span>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
 
-
-
-<div><a href="/week8/wed/hits">↩️돌아가기</a></div>
+<div class="container mt-3">
+    <a href="/week8/wed/hits" class="btn btn-primary">↩️돌아가기</a>
+</div>
 
 </body>
 </html>

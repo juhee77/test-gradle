@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Todays Hits</title>
 </head>
 <body>
 <div class="container">
-    <h3 class="hits">Todays hits: <span th:text="${hitsCnt}"></span></h3>
+    <h3 class="mt-5">Todays hits: <span th:text="${hitsCnt}"></span></h3>
 </div>
-<div>
-    <a href="/week8/wed/lotto">😎로또 숫자 추첨하러 가기</a>
-    <a href="/week8/wed/history">✨로또 기록 보러가기</a>
+<div class="container mt-3">
+    <a href="/week8/wed/lotto" class="btn btn-primary mr-2">😎로또 숫자 추첨하러 가기</a>
+    <a href="/week8/wed/history" class="btn btn-secondary">✨로또 기록 보러가기</a>
 </div>
-
 </body>
 </html>
