@@ -9,9 +9,10 @@ import java.util.List;
 @Service
 public class StudentService {
     private static final List<StudentDto> studentDtos = new ArrayList<>();
-    private static long nextId = 1L;
+    private static long nextId=1L;
 
-    public StudentDto createStudent(String name, String email) {
+    public StudentDto createStudent( String name, String email) {
+
 //        StudentDto studentDto = new StudentDto((long) studentDtos.size(), name, email);
         StudentDto studentDto = new StudentDto(nextId++, name, email);
         studentDtos.add(studentDto);

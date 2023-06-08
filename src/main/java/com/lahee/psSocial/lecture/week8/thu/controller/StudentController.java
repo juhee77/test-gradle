@@ -41,7 +41,7 @@ public class StudentController {
 
     @ResponseBody
     @GetMapping("/get-students")
-    public List<StudentDto> createStudent() {
+    public List<StudentDto>  createStudent() {
         List<StudentDto> studentDtoList = studentService.getStudents();
         for (StudentDto student : studentDtoList) {
             log.info("name:{}, email:{}", student.getName(), student.getEmail());
