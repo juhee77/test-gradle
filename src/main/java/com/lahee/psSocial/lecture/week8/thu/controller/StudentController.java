@@ -24,6 +24,13 @@ public class StudentController {
         return "/week8/thu/create";
     }
 
+    @GetMapping("/eachStudentView")
+    public String eachStudentView(Model model, @RequestParam("studentId") long studentId) {
+        StudentDto student = studentService.findByStudentId(studentId);
+        model.addAttribute("student", student);
+        return "/week8/thu/each-student";
+    }
+
     @PostMapping("/create")
     public String createStudent(@RequestParam("name") String name, @RequestParam("email") String email) {
         StudentDto student = studentService.createStudent(name, email);
@@ -44,7 +51,7 @@ public class StudentController {
     }
 
     @GetMapping("/home")
-    public String  home(Model model) {
+    public String home(Model model) {
         List<StudentDto> studentDtoList = studentService.getStudents();
         for (StudentDto student : studentDtoList) {
             log.info("name:{}, email:{}", student.getName(), student.getEmail());
