@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/week8/wed")
+@RequestMapping("/week8/thu")
 //@RequiredArgsConstructor
 public class LottoController {
     private final LottoService lottoService; //하나의 객체만 선언되도록
