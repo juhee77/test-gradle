@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>home</title>
+    <style>
+        .card:hover {
+            background-color : #E6FFFD;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>home</h1>
+    <div th:if="${students.isEmpty()}" class="alert alert-info">
+        <p>No Students here..</p>
+    </div>
+    <div>
+        <div th:unless="${students.isEmpty()}" th:each="student : ${students}" class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">id: [[${student.id}]]</h5>
+                <p class="card-text">name: [[${student.name}]]</p>
+                <p class="card-text">email: [[${student.email}]]</p>
+            </div>
+        </div>
+    </div>
+    <a href="/week8/thu/create-view" class="btn btn-primary">Create</a>
+</div>
+</body>
+</html>
