@@ -7,7 +7,7 @@
     <title>home</title>
     <style>
         .card:hover {
-            background-color : #E6FFFD;
+            background-color: #E6FFFD;
         }
     </style>
 </head>
@@ -19,7 +19,9 @@
     </div>
     <div>
         <div th:unless="${students.isEmpty()}" th:each="student : ${students}" class="card mb-3">
-            <div class="card-body">
+            <div class="card-body"
+                 th:onclick="|window.location.href='@{/week8/thu/eachStudentView(studentId=${student.id})}'|">
+
                 <h5 class="card-title">id: [[${student.id}]]</h5>
                 <p class="card-text">name: [[${student.name}]]</p>
                 <p class="card-text">email: [[${student.email}]]</p>
