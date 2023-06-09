@@ -31,6 +31,36 @@ public class StudentController {
         return "/week8/thu/each-student";
     }
 
+    @GetMapping("/{id}")
+    public String read(Model model, @PathVariable("id") long id) {
+        StudentDto student = studentService.findByStudentId(id);
+        model.addAttribute("student", student);
+        return "/week8/thu/each-student";
+    }
+
+    @PostMapping("/update")
+    public String read(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("email") String email) {
+
+        StudentDto student = studentService.findByStudentId(Integer.parseInt(id));
+        student.setEmail(email);
+        student.setName(name);
+        return "redirect:/week8/thu/" + id;
+    }
+
+    @PostMapping("/students/{id}")
+    public void delete(@PathVariable("id") String id) {
+        studentService.deleteByStudentId(Integer.parseInt(id));
+//        return "redirect:/week8/thu/home";
+    }
+
+    @GetMapping("/update/{studentId}")
+    public String modify(Model model, @PathVariable("studentId") long studentId) {
+        StudentDto student = studentService.findByStudentId(studentId);
+        model.addAttribute("student", student);
+        return "/week8/fri/update-view";
+    }
+
+
     @PostMapping("/create")
     public String createStudent(@RequestParam("name") String name, @RequestParam("email") String email) {
         StudentDto student = studentService.createStudent(name, email);
@@ -41,7 +71,7 @@ public class StudentController {
 
     @ResponseBody
     @GetMapping("/get-students")
-    public List<StudentDto>  createStudent() {
+    public List<StudentDto> createStudent() {
         List<StudentDto> studentDtoList = studentService.getStudents();
         for (StudentDto student : studentDtoList) {
             log.info("name:{}, email:{}", student.getName(), student.getEmail());
