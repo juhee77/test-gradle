@@ -39,7 +39,7 @@ public class StudentController {
     }
 
     @PostMapping("/update")
-    public String read(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("email") String email) {
+    public String update(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("email") String email) {
 
         StudentDto student = studentService.findByStudentId(Integer.parseInt(id));
         student.setEmail(email);
@@ -47,10 +47,10 @@ public class StudentController {
         return "redirect:/week8/thu/" + id;
     }
 
-    @PostMapping("/students/{id}")
-    public void delete(@PathVariable("id") String id) {
+    @PostMapping("/students/delete/{id}")
+    public String delete(@PathVariable("id") String id) {
         studentService.deleteByStudentId(Integer.parseInt(id));
-//        return "redirect:/week8/thu/home";
+        return "redirect:/week8/thu/home";
     }
 
     @GetMapping("/update/{studentId}")
@@ -72,22 +72,12 @@ public class StudentController {
     @ResponseBody
     @GetMapping("/get-students")
     public List<StudentDto> createStudent() {
-        List<StudentDto> studentDtoList = studentService.getStudents();
-        for (StudentDto student : studentDtoList) {
-            log.info("name:{}, email:{}", student.getName(), student.getEmail());
-        }
-
-        return studentDtoList;
+        return studentService.getStudents();
     }
 
     @GetMapping("/home")
     public String home(Model model) {
-        List<StudentDto> studentDtoList = studentService.getStudents();
-        for (StudentDto student : studentDtoList) {
-            log.info("name:{}, email:{}", student.getName(), student.getEmail());
-        }
-
-        model.addAttribute("students", studentDtoList);
+        model.addAttribute("students", studentService.getStudents());
         return "/week8/thu/home";
     }
 }
