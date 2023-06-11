@@ -17,4 +17,4 @@ spring:
 logging:
   level:
     org.springframework.boot.autoconfigure: ERROR
-    org.springframework.web: DEBUG
+#    org.springframework.web: DEBUG
