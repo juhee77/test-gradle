@@ -1,6 +1,5 @@
 package com.lahee.psSocial.controller;
 
-import ch.qos.logback.core.model.Model;
 import com.lahee.psSocial.domain.dto.user.UserRequestDto;
 import com.lahee.psSocial.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class userController {
     private final UserService userService;
 
+    @GetMapping("/")
+    public String home() {
+        return "home";
+    }
+
     @GetMapping("/signup")
-    public String showSignupForm(Model model) {
+    public String showSignupForm() {
         // 회원가입 폼을 보여주기 위해 signup.html을 반환합니다.
         return "signup";
     }

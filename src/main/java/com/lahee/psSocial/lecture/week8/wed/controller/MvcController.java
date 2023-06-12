@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/week8/wed")
 public class MvcController {
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home(Model model) {
         model.addAttribute("message", "Hello, Thymeleaf");
         return "/week8/wed/home";
